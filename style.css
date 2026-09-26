@@ -1,0 +1,123 @@
+/* =========================================================
+   TOPBARBYE — SILLYTAVERN
+   Fade-out top bar + floating 👀 shortcut
+   ========================================================= */
+
+
+/* =========================================================
+   TOP BAR — FADE ANIMATION
+   ========================================================= */
+
+#top-bar,
+#topbar {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+
+    transition:
+        opacity 280ms ease,
+        transform 280ms ease,
+        visibility 280ms ease !important;
+}
+
+
+/* Barre masquée */
+
+#top-bar.topbarbye-hidden,
+#topbar.topbarbye-hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-8px) !important;
+    pointer-events: none !important;
+}
+
+
+/* =========================================================
+   FLOATING 👀 BUTTON
+   ========================================================= */
+
+#topbarbye-toggle {
+    position: fixed;
+
+    z-index: 10050;
+
+    top: max(8px, env(safe-area-inset-top));
+    right: max(10px, env(safe-area-inset-right));
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 36px;
+
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 12px;
+
+    background: rgba(24, 24, 27, 0.72);
+    color: inherit;
+
+    font-size: 21px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.18);
+
+    transition:
+        background 180ms ease,
+        border-color 180ms ease,
+        transform 180ms ease,
+        opacity 180ms ease;
+}
+
+
+/* Survol */
+
+#topbarbye-toggle:hover {
+    background: rgba(55, 55, 60, 0.9);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+
+/* Animation au clic */
+
+#topbarbye-toggle:active {
+    transform: scale(0.94);
+}
+
+
+/* Accessibilité clavier */
+
+#topbarbye-toggle:focus-visible {
+    outline: 2px solid var(--SmartThemeQuoteColor, #7aa2f7);
+    outline-offset: 3px;
+}
+
+
+/* Bouton légèrement transparent lorsque la barre est visible */
+
+#topbarbye-toggle:not(.topbarbye-is-hidden) {
+    opacity: 0.72;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    #top-bar,
+    #topbar,
+    #topbarbye-toggle {
+        transition: none !important;
+    }
+}
