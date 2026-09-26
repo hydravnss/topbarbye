@@ -1,0 +1,11 @@
+{
+  "display_name": "TopBarBye 👀",
+  "loading_order": 1,
+  "requires": [],
+  "optional": [],
+  "js": "index.js",
+  "css": "style.css",
+  "author": "Hydra",
+  "version": "1.0.0",
+  "home page": "https://github.com/"
+}
