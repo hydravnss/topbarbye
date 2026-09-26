@@ -1,13 +1,18 @@
-/* TOPBARBYE — SillyTavern */
+/* =========================================================
+   TOPBARBYE — CSS
+   ========================================================= */
 
 #topbarbye-toggle {
-    -webkit-appearance: none;
-    appearance: none;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+
     touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 #topbarbye-toggle:active {
-    transform: scale(0.93);
+    transform: scale(.92);
 }
 
 #topbarbye-toggle:focus-visible {
@@ -15,6 +20,10 @@
     outline-offset: 3px;
 }
 
-.topbarbye-target {
-    will-change: opacity, max-height;
+/* Réduction des animations si activée sur l'appareil */
+
+@media (prefers-reduced-motion: reduce) {
+    #topbarbye-toggle {
+        transition: none !important;
+    }
 }
